@@ -1,0 +1,29 @@
+{
+    "name": "employee-content-management-system",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/koshea1124/Employee-Content-Management-System.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/koshea1124/Employee-Content-Management-System/issues"
+    },
+    "homepage": "https://github.com/koshea1124/Employee-Content-Management-System/tree/main#readme",
+    "dependencies": {
+        "console.table": "^0.10.0",
+        "dotenv": "^16.0.3",
+        "inquirer": "^8.2.4",
+        "mysql2": "^3.4.0"
+    }
+}

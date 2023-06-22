@@ -1,4 +1,4 @@
-INSERT INTO departments (names)
+INSERT INTO department (name)
 VALUES
 ('Human Resources'),
 ('Finance and Accounting'),
@@ -13,7 +13,7 @@ VALUES
 ('HR Manager', 120000, 1),
 ('Financial Analyst', 90000, 2),
 ('Marketing Manager', 130000, 3),
-('Sales Reresentative', 80000,4),
+('Sales Representative', 80000,4),
 ('Operations Manager', 120000, 5),
 ('Customer Service Rep', 50000, 6),
 ('IT Manager', 140000, 7),
@@ -27,20 +27,20 @@ VALUES
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-('Kevin', 'OShea', 7, 1)
-('Shawn', 'Frawley', 14, 2)
-('Allison', 'Chacon', 3, 3)
-('Scott', 'Felten', 6, 4)
-('Katreena', 'Colato', 9, 5)
-('Amber', 'Nelson', 1, 6)
-('Joe', 'Chavez', 5, 7)
-('Al', 'Carter', 4, 8)
-('Will', 'McCrae', 11, 9)
-('Mike', 'Coakley', 10, 10)
-('Keley', 'West', 8, 11)
-('Caitlin', 'McCrae', 12, 12)
-('Jamie', 'Quaglino', 2, 13)
-('Kerrie', 'Anne', 13, 14)
+('Kevin', 'OShea', 7, null),
+('Shawn', 'Frawley', 14, 7),
+('Allison', 'Chacon', 3, null),
+('Scott', 'Felten', 6, 13),
+('Katreena', 'Colato', 9, 2),
+('Amber', 'Nelson', 1, null),
+('Joe', 'Chavez', 5, null),
+('Al', 'Carter', 4, 11),
+('Will', 'McCrae', 11, null),
+('Mike', 'Coakley', 10, 3),
+('Keley', 'West', 8, 1),
+('Caitlin', 'McCrae', 12, 5),
+('Jamie', 'Quaglino', 2, null),
+('Kerrie', 'Anne', 13, null);
 
 
 
