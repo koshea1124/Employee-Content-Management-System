@@ -81,7 +81,7 @@ Follow the prompts to add, update, or remove if chosen or simply select from the
 Each selection, once completed, will bring you back to the main menu. Once your session is complete simply close the terminal.
 
 ##  Demonstration
-Link to youTube video
+Link to youTube video: [Module 12 Challenge](https://youtu.be/zHCdKNsF6es)
 
 ##  Contributing
 Please reach out via email or thru GitHub if you have any suggestions for imporovement
