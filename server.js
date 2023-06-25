@@ -1,22 +1,16 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
 
+require("dotenv").config();
+
 // create a MySQL connection
 const connection = mysql.createConnection({
-  host: "localhost",
-  port: 5250,
-  user: "root",
-  password: "",
-  database: "employeeCMS_db",
+  host: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
-// connect to the database
-connection.connect((err) => {
-  if (err) throw err;
-  console.log("Connected to the database!");
-  // start the application
-  start();
-});
 
 //Star Employee Content Management System
 const start = () => {
@@ -43,8 +37,9 @@ const start = () => {
             ],
           },
         ])  
-        .then ((answer) => {
-            switch (answer.menu) {
+        .then ((answers) => {
+          const { menu } = answers
+            switch (menu) {
                 case "View all departments":
                     showDepartments();
                     break;
@@ -73,11 +68,9 @@ const start = () => {
                     default:
                       break;
                   }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      };
+               });    
+            };
+      
 
 
 showDepartments = () => {
@@ -88,51 +81,46 @@ showDepartments = () => {
     .query(sql)
     .then(([rows]) => {
       console.table(rows);
+      start();
           })
     .catch((err) => {
       console.error(err);
-    })
-    .finally(() => {
       start();
     });
 };
 
 showRoles = () => {
   console.log("Showing all roles");
-  const sql = `SELECT roles.id, roles.title, roles.salary, department.name AS department FROM \`role\`
-        INNER JOIN department ON role.department_id = department.id`;
+  const sql = `SELECT roles.id, roles.title, roles.salary, department.name AS department FROM \`roles\`
+        INNER JOIN department ON roles.department_id = department.id`;
 
   connection.promise()
     .query(sql)
     .then(([rows]) => {
       console.table(rows);
+      start();
     })
     .catch((err) => {
       throw err;
-    })
-    .finally(() => {
-      start();
     });
 };
 
 showEmployees = () => {
   console.log("Showing all employees");
-  const sql = `SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department,
-    role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee 
-    LEFT JOIN role ON employee.role_id = role.id
-    LEFT JOIN department ON role.department_id = department.id
+  const sql = `SELECT employee.id, employee.first_name, employee.last_name, roles.title, department.name AS department,
+    roles.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee 
+    LEFT JOIN roles ON employee.role_id = roles.id
+    LEFT JOIN department ON roles.department_id = department.id
     LEFT JOIN employee manager ON employee.manager_id = manager.id`;
 
   connection.promise()
     .query(sql)
     .then(([rows, fields]) => {
       console.table(rows);
+      start();
     })
     .catch((err) => {
       throw err;
-    })
-    .finally(() => {
-      start();
     });
 };
 
@@ -190,9 +178,10 @@ addRole = () => {
         message: "What is the annual salary for this job?",
         validate: (addSalary) => {
           if (isNaN(addSalary)) {
-            console.log("Please enter a valid salary.");
+
             return false;
           } else {
+            console.log("Please enter a valid salary.");
             return true;
           }
         },
@@ -221,7 +210,7 @@ addRole = () => {
               const dept = deptChoice.dept;
               params.push(dept);
 
-              const sql = `INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`;
+              const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
 
               connection.promise()
                 .execute(sql, params)
@@ -270,7 +259,7 @@ addEmployee = () => {
     ])
     .then((answer) => {
       const params = [answer.firstName, answer.lastName];
-      const roleSql = `SELECT role.id, role.title FROM role`;
+      const roleSql = `SELECT roles.id, roles.title FROM roles`;
 
       connection.promise()
         .query(roleSql)
@@ -363,7 +352,7 @@ updateEmployeeRole = () => {
           const params = [];
           params.push(employee);
 
-          const roleSql = `SELECT * FROM role`;
+          const roleSql = `SELECT * FROM roles`;
 
           connection.promise()
             .query(roleSql)

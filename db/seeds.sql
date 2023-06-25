@@ -28,17 +28,17 @@ VALUES
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
 ('Kevin', 'OShea', 7, null),
-('Shawn', 'Frawley', 14, 7),
+('Shawn', 'Frawley', 14, 1),
 ('Allison', 'Chacon', 3, null),
-('Scott', 'Felten', 6, 13),
-('Katreena', 'Colato', 9, 2),
+('Scott', 'Felten', 6, 14),
+('Katreena', 'Colato', 9, 13),
 ('Amber', 'Nelson', 1, null),
 ('Joe', 'Chavez', 5, null),
-('Al', 'Carter', 4, 11),
+('Al', 'Carter', 4, 9),
 ('Will', 'McCrae', 11, null),
 ('Mike', 'Coakley', 10, 3),
-('Keley', 'West', 8, 1),
-('Caitlin', 'McCrae', 12, 5),
+('Keley', 'West', 8, 6),
+('Caitlin', 'McCrae', 12, 7),
 ('Jamie', 'Quaglino', 2, null),
 ('Kerrie', 'Anne', 13, null);
 
