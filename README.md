@@ -9,7 +9,6 @@
 - [Demonstration](#demonstration)
 - [Contributing](#contributing)
 - [Questions](#questions)
-- [License](#screenshot)
 - [Credits](#credits)
 
 ##  Description
