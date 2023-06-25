@@ -91,9 +91,6 @@ Please feel free to reach out if you have any questions:
 * GitHub UserName: https://github.com/koshea1124
 * Email: koshea1980@gmail.com
 
-##  License
-N/A
-
 ##  Credits
 * [NPM Install](https://docs.npmjs.com/cli/v6/commands/npm-init)
 * [NPM Inquirer](https://www.npmjs.com/package/inquirer)
