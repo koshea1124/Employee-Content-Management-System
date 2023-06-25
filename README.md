@@ -101,5 +101,5 @@ N/A
 * [Code Academy](https://www.codecademy.com/catalog)
 * [Markdown Crash Course Video](https://www.youtube.com/watch?v=HUBNt18RFbo)
 * [MDN Docs](https://developer.mozilla.org/en-US/)
-* [MySQL]([MDN Docs](https://developer.mozilla.org/en-US/))
+* [MySQL](https://developer.mozilla.org/en-US/)
 
